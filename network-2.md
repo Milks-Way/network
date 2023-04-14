@@ -20,11 +20,7 @@
    
    Конфиг:
    
-   auto vlan1400
-   iface vlan1400 inet static
-        address 192.168.1.1
-        netmask 255.255.255.0
-        vlan_raw_device eth0
+   ![network-2_3](img/network-2_3.png)
         
 4. **Какие типы агрегации интерфейсов есть в Linux? Какие опции есть для балансировки нагрузки? Приведите пример конфига.**    
 
@@ -47,24 +43,9 @@
    
    balance-alb - Политика адаптивной балансировки нагрузки. Включает в себя политику balance-tlb плюс осуществляет балансировку входящего трафика. Не        требует дополнительной настройки на коммутаторе. Балансировка входящего трафика достигается путём ARP переговоров.
    
-   auto bond0
-   iface bond0 inet static
+   Пример конфига:
    
-      bond-slaves wlan0 eth0
-      bond-mode active-backup
-      bond-primary eth0
-      bond-miimon 100
-      address <ipv4address>/<maskbits>
-      gateway <ipv4address>
-    
-   allow-bond0 eth0
-   iface eth0 inet manual
-    
-   allow-bond0 wlan0
-   iface wlan0 inet manual
-   # bond-give-a-chance 10
-     wpa-bridge bond0
-     wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+   ![network-2_4](img/network-2_4.png)
          
 5. **Сколько IP-адресов в сети с маской /29 ? Сколько /29 подсетей можно получить из сети с маской /24. Приведите несколько примеров /29 подсетей внутри    сети 10.10.10.0/24.**
 
